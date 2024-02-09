@@ -58,6 +58,7 @@ body{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    position: relative;
 }
 
 .bill-wrapper label, .people-count-wrapper label, .tips-wrapper p{
@@ -66,8 +67,9 @@ body{
     letter-spacing: 2px;
 }
 
-.bill-wrapper input, .people-count-wrapper input{
+.bill-wrapper input, .people-input input{
     height: 40px;
+    width: 100%;
     background-color: hsl(189, 41%, 97%);
     border: none;
     border-radius: 5px;
@@ -76,6 +78,22 @@ body{
     font-family: "Space Mono", monospace;
     text-align: right;
     outline: hsl(186, 14%, 43%);
+    padding-right: 10px;
+}
+
+.bill-wrapper input::-webkit-outer-spin-button, .bill-wrapper input::-webkit-inner-spin-button,
+.people-input input::-webkit-outer-spin-button, .people-input input::-webkit-inner-spin-button,
+.custom-tip::-webkit-outer-spin-button, .custom-tip::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+}
+
+.bill-wrapper img{
+    width: 12px;
+    height: 20px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
 }
 
 .tips-wrapper{
@@ -123,6 +141,15 @@ body{
     gap: 10px;
 }
 
-.people-count-wrapper input{
+.people-input{
+    width: 100%;
+    position: relative;
+}
 
+.people-input img{
+    position: absolute;
+    width: 12px;
+    /* height: 20px; */
+    bottom: 10px;
+    left: 10px;
 }
