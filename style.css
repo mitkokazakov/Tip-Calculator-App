@@ -172,6 +172,10 @@ body{
     position: relative;
 }
 
+.people-input input.failed{
+    border: 2px solid #cd8479;
+}
+
 .people-input img{
     position: absolute;
     width: 12px;

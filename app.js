@@ -1,8 +1,18 @@
 let allButtons = document.querySelectorAll('.single-tip');
 
+let peopleInput = document.querySelector('.people-input input');
+
+let customInput = document.querySelector('.custom-tip');
+
 let results = document.querySelector('.results-section');
 
-let p = 0;
+let percentage = 0;
+
+
+
+allButtons.forEach(b => {
+    b.addEventListener('click', GetValueFromClickedButton);
+})
 
 function GetValueFromClickedButton(e){
 
@@ -10,12 +20,32 @@ function GetValueFromClickedButton(e){
 
     let value = text.slice(0,-1);
 
-    p = Number(value);
+    percentage = Number(value);
 
     console.log(value);
 }
 
-allButtons.forEach(b => {
-    b.addEventListener('click', GetValueFromClickedButton);
-})
+function CheckPeopleInputValue(){
 
+    let value = peopleInput.value;
+
+    if(value <= 0){
+        peopleInput.classList.add('failed');
+    }
+    else{
+        peopleInput.classList.remove('failed');
+    }
+}
+
+function CheckIfCustomInputNotNull(){
+
+    let value = customInput.value;
+
+    if(value != 0){
+
+        percentage = value;
+        console.log(value);
+    }
+}
+
+results.addEventListener('click',CheckIfCustomInputNotNull);
