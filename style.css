@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background-color: hsl(185, 41%, 84%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    font-family: "Space Mono", monospace;
+}
+
+.calculator{
+    width: 900px;
+    height: 450px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 40px;
+}
+
+.input-section, .results-section{
+    width: 50%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.input-section{
+    background-color: hsl(185, 41%, 84%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* gap: 20px; */
+    padding: 20px;
+}
+
+.results-section{
+    background-color: hsl(183, 100%, 15%);
+}
+
+.bill-wrapper, .tips-wrapper, .people-count-wrapper{
+    width: 100%;
+}
+
+.bill-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bill-wrapper label, .people-count-wrapper label, .tips-wrapper p{
+    font-weight: 700;
+    color: hsl(186, 14%, 43%);
+    letter-spacing: 2px;
+}
+
+.bill-wrapper input, .people-count-wrapper input{
+    height: 40px;
+    background-color: hsl(189, 41%, 97%);
+    border: none;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: "Space Mono", monospace;
+    text-align: right;
+    outline: hsl(186, 14%, 43%);
+}
+
+.tips-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tips{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.single-tip, .custom-tip{
+    width: 30%;
+    height: 50px;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
+.single-tip{
+    background-color: hsl(183, 100%, 15%);
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.custom-tip{
+    border: none;
+    outline: none;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: "Space Mono", monospace;
+    text-align: right;
+}
+
+.people-count-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.people-count-wrapper input{
+
+}
