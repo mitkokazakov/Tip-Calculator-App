@@ -2,6 +2,8 @@ let allButtons = document.querySelectorAll('.single-tip');
 
 let peopleInput = document.querySelector('.people-input input');
 
+let peopleInputErrorMessage = document.querySelector('.people-count-error p');
+
 let customInput = document.querySelector('.custom-tip');
 
 let results = document.querySelector('.results-section');
@@ -16,13 +18,23 @@ allButtons.forEach(b => {
 
 function GetValueFromClickedButton(e){
 
+    allButtons.forEach(b => {
+        if (b.classList.contains('active')) {
+            b.classList.remove('active');
+        }
+    })
+
     let text = e.target.innerText;
 
     let value = text.slice(0,-1);
 
     percentage = Number(value);
 
-    console.log(value);
+    e.target.classList.add('active');
+
+    customInput.value  = 0;
+
+    console.log(e.target);
 }
 
 function CheckPeopleInputValue(){
@@ -31,9 +43,11 @@ function CheckPeopleInputValue(){
 
     if(value <= 0){
         peopleInput.classList.add('failed');
+        peopleInputErrorMessage.classList.add('failed');
     }
     else{
         peopleInput.classList.remove('failed');
+        peopleInputErrorMessage.classList.remove('failed');
     }
 }
 
@@ -45,7 +59,13 @@ function CheckIfCustomInputNotNull(){
 
         percentage = value;
         console.log(value);
+
+        allButtons.forEach(b => {
+            if (b.classList.contains('active')) {
+                b.classList.remove('active');
+            }
+        })
     }
 }
 
-results.addEventListener('click',CheckIfCustomInputNotNull);
+// results.addEventListener('click',CheckIfCustomInputNotNull);

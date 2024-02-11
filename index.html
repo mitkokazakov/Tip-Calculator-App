@@ -30,12 +30,15 @@
                     <button class="single-tip">15%</button>
                     <button class="single-tip">25%</button>
                     <button class="single-tip">50%</button>
-                    <input class="custom-tip" type="number" placeholder="Custom">
+                    <input class="custom-tip" type="number" placeholder="Custom" onchange="CheckIfCustomInputNotNull()">
                 </div>
             </div>
 
             <div class="people-count-wrapper">
-                <label for="">Number of People</label>
+                <div class="people-count-error">
+                    <label for="">Number of People</label>
+                    <p>Can't be zero</p>
+                </div>
                 <div class="people-input">
                     <input type="number" placeholder="0" onchange="CheckPeopleInputValue()">
                     <img src="./images/icon-person.svg" alt="">
