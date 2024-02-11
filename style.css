@@ -256,10 +256,12 @@ body{
     pointer-events: none;
 }
 
-.reset-btn:hover{
-    background-color: #9fe8df;
-}
-
 .reset-btn.active{
     background-color: #26c1ad;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.reset-btn.active:hover{
+    background-color: #9fe8df;
 }

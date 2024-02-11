@@ -28,7 +28,7 @@ allButtons.forEach(b => {
     b.addEventListener('click', GetValueFromClickedButton);
 })
 
-function GetValueFromClickedButton(e){
+function GetValueFromClickedButton(e) {
 
     allButtons.forEach(b => {
         if (b.classList.contains('active')) {
@@ -38,39 +38,39 @@ function GetValueFromClickedButton(e){
 
     let text = e.target.innerText;
 
-    let value = text.slice(0,-1);
+    let value = text.slice(0, -1);
 
     percentage = Number(value);
 
     e.target.classList.add('active');
 
-    customInput.value  = 0;
+    customInput.value = 0;
 
     console.log(e.target);
 }
 
-function CheckPeopleInputValue(){
+function CheckPeopleInputValue() {
 
     let value = peopleInput.value;
 
-    if(value <= 0){
+    if (value <= 0) {
         peopleInput.classList.add('failed');
         peopleInputErrorMessage.classList.add('failed');
     }
-    else{
+    else {
         peopleInput.classList.remove('failed');
         peopleInputErrorMessage.classList.remove('failed');
     }
 
     Calculate();
-    
+
 }
 
-function CheckIfCustomInputNotNull(){
+function CheckIfCustomInputNotNull() {
 
     let value = customInput.value;
 
-    if(value != 0){
+    if (value != 0) {
 
         percentage = value;
 
@@ -84,21 +84,43 @@ function CheckIfCustomInputNotNull(){
     }
 }
 
-function Calculate(){
+function Calculate() {
 
     let tipPerPerson = 0;
 
     let billPerPerson = 0;
 
-    if(billInput.value > 0 && percentage > 0 && peopleInput.value > 0){
+    if (billInput.value > 0 && percentage > 0 && peopleInput.value > 0) {
 
         tipPerPerson = (billInput.value * (percentage / 100)) / peopleInput.value;
 
         billPerPerson = (billInput.value / peopleInput.value) + tipPerPerson;
 
-        amountTip.innerText = tipPerPerson;
-        amountTotal.innerText = billPerPerson;
+        amountTip.innerText = tipPerPerson.toFixed(2);
+        amountTotal.innerText = billPerPerson.toFixed(2);
+
+        resetBtn.classList.add('active');
     }
 }
 
-tipsSection.addEventListener('click',Calculate);
+function Reset() {
+    billInput.value = null;
+    peopleInput.value = null;
+
+    allButtons.forEach(b => {
+        if (b.classList.contains('active')) {
+            b.classList.remove('active');
+        }
+    });
+
+    customInput.value = null;
+
+    amountTip.innerText = '$0.00';
+    amountTotal.innerText = '$0.00';
+
+    resetBtn.classList.remove('active');
+}
+
+tipsSection.addEventListener('click', Calculate);
+
+resetBtn.addEventListener('click', Reset);
