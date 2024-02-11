@@ -1,5 +1,11 @@
 let allButtons = document.querySelectorAll('.single-tip');
 
+let tipsSection = document.querySelector('.tips');
+
+let inputSection = document.querySelector('.input-section');
+
+let billInput = document.querySelector('.bill-wrapper input');
+
 let peopleInput = document.querySelector('.people-input input');
 
 let peopleInputErrorMessage = document.querySelector('.people-count-error p');
@@ -10,9 +16,13 @@ let results = document.querySelector('.results-section');
 
 let resetBtn = document.querySelector('.reset-btn');
 
+let amountTip = document.querySelector('.amountTip');
+
+let amountTotal = document.querySelector('.amountTotal');
+
 let percentage = 0;
 
-
+console.log(billInput.value);
 
 allButtons.forEach(b => {
     b.addEventListener('click', GetValueFromClickedButton);
@@ -51,6 +61,9 @@ function CheckPeopleInputValue(){
         peopleInput.classList.remove('failed');
         peopleInputErrorMessage.classList.remove('failed');
     }
+
+    Calculate();
+    
 }
 
 function CheckIfCustomInputNotNull(){
@@ -60,16 +73,32 @@ function CheckIfCustomInputNotNull(){
     if(value != 0){
 
         percentage = value;
-        console.log(value);
 
         allButtons.forEach(b => {
             if (b.classList.contains('active')) {
                 b.classList.remove('active');
             }
         })
+
+        Calculate();
     }
 }
 
-resetBtn.addEventListener('click',() =>{
-    console.log('click');
-});
+function Calculate(){
+
+    let tipPerPerson = 0;
+
+    let billPerPerson = 0;
+
+    if(billInput.value > 0 && percentage > 0 && peopleInput.value > 0){
+
+        tipPerPerson = (billInput.value * (percentage / 100)) / peopleInput.value;
+
+        billPerPerson = (billInput.value / peopleInput.value) + tipPerPerson;
+
+        amountTip.innerText = tipPerPerson;
+        amountTotal.innerText = billPerPerson;
+    }
+}
+
+tipsSection.addEventListener('click',Calculate);

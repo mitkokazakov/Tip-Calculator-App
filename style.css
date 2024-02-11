@@ -136,8 +136,13 @@ body{
     cursor: pointer;
 }
 
-.single-tip.active{
+.single-tip:hover{
     background-color: #9fe8df;
+    color: hsl(183, 100%, 15%);
+}
+
+.single-tip.active{
+    background-color: #26c2ad;
     color: hsl(183, 100%, 15%);
 }
 
@@ -233,7 +238,7 @@ body{
     font-size: 12px;
 }
 
-.amount{
+.amountTip, .amountTotal{
     font-size: 40px;
     font-weight: 700;
     color: #26c1ad;
@@ -249,4 +254,12 @@ body{
     font-weight: 700;
     letter-spacing: 3px;
     pointer-events: none;
+}
+
+.reset-btn:hover{
+    background-color: #9fe8df;
+}
+
+.reset-btn.active{
+    background-color: #26c1ad;
 }
