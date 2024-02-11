@@ -8,6 +8,8 @@ let customInput = document.querySelector('.custom-tip');
 
 let results = document.querySelector('.results-section');
 
+let resetBtn = document.querySelector('.reset-btn');
+
 let percentage = 0;
 
 
@@ -68,4 +70,6 @@ function CheckIfCustomInputNotNull(){
     }
 }
 
-// results.addEventListener('click',CheckIfCustomInputNotNull);
+resetBtn.addEventListener('click',() =>{
+    console.log('click');
+});
